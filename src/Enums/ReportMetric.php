@@ -43,6 +43,10 @@ use function in_array;
  * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_7D_OTHER_SKU()
  * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_14D_OTHER_SKU()
  * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_30D_OTHER_SKU()
+ * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU()
+ * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU()
+ * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU()
+ * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU()
  * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_1D()
  * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_7D()
  * @method static ReportMetric ATTRIBUTED_UNITS_ORDERED_14D()
@@ -114,6 +118,14 @@ class ReportMetric extends Enum
     public const ATTRIBUTED_UNITS_ORDERED_14D_OTHER_SKU = 'attributedUnitsOrdered14dOtherSKU';
     public const ATTRIBUTED_UNITS_ORDERED_30D_OTHER_SKU = 'attributedUnitsOrdered30dOtherSKU';
 
+    public const ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU  = 'attributedUnitsOrdered1dSameSKU';
+    public const ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU  = 'attributedUnitsOrdered7dSameSKU';
+    public const ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU = 'attributedUnitsOrdered14dSameSKU';
+    public const ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU = 'attributedUnitsOrdered30dSameSKU';
+
+    public const ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_READ_14d = 'attributedKindleEditionNormalizedPagesRead14d';
+    public const ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_ROYALTIES_14d = 'attributedKindleEditionNormalizedPagesRoyalties14d';
+
     public const ATTRIBUTED_SALES_1D  = 'attributedSales1d';
     public const ATTRIBUTED_SALES_7D  = 'attributedSales7d';
     public const ATTRIBUTED_SALES_14D = 'attributedSales14d';
@@ -161,6 +173,12 @@ class ReportMetric extends Enum
             self::ATTRIBUTED_SALES_7D_SAME_SKU,
             self::ATTRIBUTED_SALES_14D_SAME_SKU,
             self::ATTRIBUTED_SALES_30D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_READ_14d,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_ROYALTIES_14d
         ],
         ReportRecordType::AD_GROUPS   => [
             self::CAMPAIGN_NAME,
@@ -190,6 +208,12 @@ class ReportMetric extends Enum
             self::ATTRIBUTED_SALES_7D_SAME_SKU,
             self::ATTRIBUTED_SALES_14D_SAME_SKU,
             self::ATTRIBUTED_SALES_30D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_READ_14d,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_ROYALTIES_14d
         ],
         ReportRecordType::PRODUCT_ADS => [
             self::CAMPAIGN_NAME,
@@ -222,12 +246,20 @@ class ReportMetric extends Enum
             self::ATTRIBUTED_SALES_7D_SAME_SKU,
             self::ATTRIBUTED_SALES_14D_SAME_SKU,
             self::ATTRIBUTED_SALES_30D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_READ_14d,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_ROYALTIES_14d
         ],
         ReportRecordType::KEYWORDS    => [
             self::CAMPAIGN_NAME,
             self::CAMPAIGN_ID,
             self::KEYWORD_ID,
             self::KEYWORD_TEXT,
+            self::AD_GROUP_NAME,
+            self::AD_GROUP_ID,
             self::MATCH_TYPE,
             self::IMPRESSIONS,
             self::CLICKS,
@@ -252,10 +284,18 @@ class ReportMetric extends Enum
             self::ATTRIBUTED_SALES_7D_SAME_SKU,
             self::ATTRIBUTED_SALES_14D_SAME_SKU,
             self::ATTRIBUTED_SALES_30D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_READ_14d,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_ROYALTIES_14d
         ],
         ReportRecordType::TARGETS     => [
             self::CAMPAIGN_NAME,
             self::CAMPAIGN_ID,
+            self::AD_GROUP_NAME,
+            self::AD_GROUP_ID,
             self::TARGET_ID,
             self::TARGETING_EXPRESSION,
             self::TARGETING_TEXT,
@@ -283,6 +323,12 @@ class ReportMetric extends Enum
             self::ATTRIBUTED_SALES_7D_SAME_SKU,
             self::ATTRIBUTED_SALES_14D_SAME_SKU,
             self::ATTRIBUTED_SALES_30D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_READ_14d,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_ROYALTIES_14d
         ],
         ReportRecordType::ASINS       => [
             self::CAMPAIGN_NAME,
@@ -296,6 +342,10 @@ class ReportMetric extends Enum
             self::ASIN,
             self::OTHER_ASIN,
             self::SKU,
+            self::ATTRIBUTED_UNITS_ORDERED_1D,
+            self::ATTRIBUTED_UNITS_ORDERED_7D,
+            self::ATTRIBUTED_UNITS_ORDERED_14D,
+            self::ATTRIBUTED_UNITS_ORDERED_30D,
             self::ATTRIBUTED_UNITS_ORDERED_1D_OTHER_SKU,
             self::ATTRIBUTED_UNITS_ORDERED_7D_OTHER_SKU,
             self::ATTRIBUTED_UNITS_ORDERED_14D_OTHER_SKU,
@@ -304,6 +354,8 @@ class ReportMetric extends Enum
             self::ATTRIBUTED_SALES_7D_OTHER_SKU,
             self::ATTRIBUTED_SALES_14D_OTHER_SKU,
             self::ATTRIBUTED_SALES_30D_OTHER_SKU,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_READ_14d,
+            self::ATTRIBUTED_KINDLE_EDITION_NORMALIZED_PAGES_ROYALTIES_14d
         ],
     ];
 
